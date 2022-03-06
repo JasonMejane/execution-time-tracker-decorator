@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"declaration": true,
+		"declarationDir": "./dist",
+		"experimentalDecorators": true,
+		"lib": ["es2018", "es2020", "dom"],
+		"module": "es2020",
+		"moduleResolution": "node",
+		"outDir": "./dist",
+		"strict": true,
+		"target": "es2018",
+		"types": ["node", "jasmine"]
+	},
+	"include": ["src/**/*.ts", "test/**/*.spec.ts"],
+}
