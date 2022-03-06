@@ -14,7 +14,6 @@ jobs:
           node-version: 16.14.0
       - run: npm ci
       - run: npm run build
-      - run: npm run test
 
   publish-npm:
     needs: build
