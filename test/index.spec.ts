@@ -3,42 +3,26 @@ import { Async, Sync } from '../src';
 export class TestSync {
 	@Sync()
 	testNoParams(limit?: number): void {
-		let a = 0;
-		for (let i = 0; i < (limit ?? 10); i++) {
-			a++;
-		}
+		return;
 	}
 
 	@Sync({ shouldLogArguments: true })
 	testWithArguments(limit?: number): void {
-		let a = 0;
-		for (let i = 0; i < (limit ?? 10); i++) {
-			a++;
-		}
+		return;
 	}
 
 	@Sync({ title: 'SyncCustomTitle' })
 	testCustomTitle(limit?: number): void {
-		let a = 0;
-		for (let i = 0; i < (limit ?? 10); i++) {
-			a++;
-		}
+		return;
 	}
 
 	@Sync({ logger: console })
 	testCustomLogger(limit?: number): void {
-		let a = 0;
-		for (let i = 0; i < (limit ?? 10); i++) {
-			a++;
-		}
+		return;
 	}
 
 	@Sync()
 	testThrow(limit?: number): void {
-		let a = 0;
-		for (let i = 0; i < (limit ?? 10); i++) {
-			a++;
-		}
 		throw 'Error';
 	}
 }
