@@ -24,7 +24,7 @@ jobs:
             - run: npm run test
 
     build-old-node-version:
-    	needs: build
+        needs: build
         runs-on: ubuntu-latest
 
         strategy:
