@@ -4,7 +4,7 @@ export class TestSync {
 	@Sync()
 	testNoParams(limit?: number): void {
 		let a = 0;
-		for (let i = 0; i < (limit ?? 100); i++) {
+		for (let i = 0; i < (limit ?? 10); i++) {
 			a++;
 		}
 	}
@@ -12,7 +12,7 @@ export class TestSync {
 	@Sync({ shouldLogArguments: true })
 	testWithArguments(limit?: number): void {
 		let a = 0;
-		for (let i = 0; i < (limit ?? 100); i++) {
+		for (let i = 0; i < (limit ?? 10); i++) {
 			a++;
 		}
 	}
@@ -20,7 +20,7 @@ export class TestSync {
 	@Sync({ title: 'SyncCustomTitle' })
 	testCustomTitle(limit?: number): void {
 		let a = 0;
-		for (let i = 0; i < (limit ?? 100); i++) {
+		for (let i = 0; i < (limit ?? 10); i++) {
 			a++;
 		}
 	}
@@ -28,7 +28,7 @@ export class TestSync {
 	@Sync({ logger: console })
 	testCustomLogger(limit?: number): void {
 		let a = 0;
-		for (let i = 0; i < (limit ?? 100); i++) {
+		for (let i = 0; i < (limit ?? 10); i++) {
 			a++;
 		}
 	}
@@ -36,7 +36,7 @@ export class TestSync {
 	@Sync()
 	testThrow(limit?: number): void {
 		let a = 0;
-		for (let i = 0; i < (limit ?? 100); i++) {
+		for (let i = 0; i < (limit ?? 10); i++) {
 			a++;
 		}
 		throw 'Error';
@@ -46,42 +46,26 @@ export class TestSync {
 export class TestAsync {
 	@Async()
 	async testNoParams(limit?: number): Promise<void> {
-		let a = 0;
-		for (let i = 0; i < (limit ?? 2); i++) {
-			a++;
-		}
+		return;
 	}
 
 	@Async({ shouldLogArguments: true })
 	async testWithArguments(limit?: number): Promise<void> {
-		let a = 0;
-		for (let i = 0; i < (limit ?? 2); i++) {
-			a++;
-		}
+		return;
 	}
 
 	@Async({ title: 'AsyncCustomTitle' })
 	async testCustomTitle(limit?: number): Promise<void> {
-		let a = 0;
-		for (let i = 0; i < (limit ?? 2); i++) {
-			a++;
-		}
+		return;
 	}
 
 	@Async({ logger: console })
 	async testCustomLogger(limit?: number): Promise<void> {
-		let a = 0;
-		for (let i = 0; i < (limit ?? 2); i++) {
-			a++;
-		}
+		return;
 	}
 
 	@Async()
 	async testThrow(limit?: number): Promise<void> {
-		let a = 0;
-		for (let i = 0; i < (limit ?? 2); i++) {
-			a++;
-		}
 		throw 'Error';
 	}
 }
@@ -108,7 +92,7 @@ describe('TestSync', () => {
 	});
 
 	it('should run and log arguments', () => {
-		const arg = 136;
+		const arg = 5;
 
 		spyOn(console, 'log').and.callThrough();
 
