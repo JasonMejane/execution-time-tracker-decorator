@@ -45,7 +45,7 @@ npm i execution-time-tracker-decorator;
 
 In your project, import the decorators you need :
 ```typescript
-import { Async, Sync } from 'execution-time-tracker-decorators';
+import { Async, Sync } from 'execution-time-tracker-decorator';
 ```
 
 ### Decorate methods
