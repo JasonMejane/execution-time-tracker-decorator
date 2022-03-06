@@ -4,4 +4,6 @@
 coverage
 karma.conf.js
 package-lock.json
+test
 tsconfig.json
+tsconfig.build.json
