@@ -1,6 +1,6 @@
 {
 	"name": "execution-time-tracker-decorator",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Easily track and log execution time of your methods in Node and Browser apps",
 	"scripts": {
 		"build": "tsc -p tsconfig.build.json",
@@ -8,12 +8,11 @@
 		"test": "karma start karma.conf.js"
 	},
 	"files": [
-	  "./index.js",
-	  "./index.d.ts"
+		"index.js",
+		"index.d.ts"
 	],
 	"main": "index.js",
 	"types": "index.d.ts",
-	"browser": "index.js",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/JasonMejane/execution-time-tracker-decorator.git"
