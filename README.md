@@ -4,24 +4,24 @@
 	<b>Measure execution time of your methods both in Node.js and Browser apps.</b>
 	<br/>
 	<br/>
-	<span>
+	<a href="https://github.com/JasonMejane/execution-time-tracker-decorator">
 		<img src="https://img.shields.io/github/v/release/JasonMejane/execution-time-tracker-decorator" alt="Release" />
-	</span>&nbsp;
+	</a>&nbsp;
 	<a href="https://www.npmjs.com/execution-time-tracker-decorator">
     	<img src="https://img.shields.io/npm/v/execution-time-tracker-decorator.svg?logo=npm&logoColor=fff&label=NPM+package&color=limegreen" alt="execution-time-tracker-decorator on npm" />
 	</a>&nbsp;
 	<span>
 		<img src="https://img.shields.io/bundlephobia/min/execution-time-tracker-decorator" alt="Package size" />
 	</span>&nbsp;
-	<span>
+	<a href="https://github.com/JasonMejane/execution-time-tracker-decorator/blob/master/LICENSE">
 		<img src="https://img.shields.io/github/license/JasonMejane/execution-time-tracker-decorator" alt="Licence" />
-	</span>
+	</a>
 	<span>
 		<img src="https://img.shields.io/badge/dependencies-0-success" alt="Dependencies" />
 	</span>&nbsp;
-	<span>
+	<a href="https://github.com/JasonMejane/execution-time-tracker-decorator/issues">
 		<img src="https://img.shields.io/github/issues/JasonMejane/execution-time-tracker-decorator" alt="Issues" />
-	</span>&nbsp;
+	</a>&nbsp;
 	<br/>
 	<span>
 		<img src="https://github.com/JasonMejane/execution-time-tracker-decorator/actions/workflows/nodejs_ci_master.yml/badge.svg" alt="Node.js CI" />
