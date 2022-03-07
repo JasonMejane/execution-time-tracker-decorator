@@ -16,19 +16,18 @@
 	<span>
 		<img src="https://img.shields.io/github/license/JasonMejane/execution-time-tracker-decorator" alt="Licence" />
 	</span>
-	<br/>
+	<span>
+		<img src="https://img.shields.io/badge/dependencies-0-success" alt="Dependencies" />
+	</span>&nbsp;
+	<span>
+		<img src="https://img.shields.io/github/issues/JasonMejane/execution-time-tracker-decorator" alt="Issues" />
+	</span>&nbsp;
 	<br/>
 	<span>
 		<img src="https://github.com/JasonMejane/execution-time-tracker-decorator/actions/workflows/nodejs_ci_master.yml/badge.svg" alt="Node.js CI" />
 	</span>&nbsp;
 	<span>
 		<img src="https://img.shields.io/badge/coverage-93%25-success" alt="Coverage" />
-	</span>&nbsp;
-	<span>
-		<img src="https://img.shields.io/badge/dependencies-0-success" alt="Dependencies" />
-	</span>&nbsp;
-	<span>
-		<img src="https://img.shields.io/github/issues/JasonMejane/execution-time-tracker-decorator" alt="Issues" />
 	</span>&nbsp;
 </p>
 
