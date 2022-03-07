@@ -2,6 +2,7 @@
 .github
 .gitignore
 coverage
+dist
 karma.conf.js
 package-lock.json
 src
