@@ -158,6 +158,6 @@ Using a custom logger or not, the first parameter that will be passed is the mai
 
 ## Notes
 
-If decorators are used in a Node.js app, `process.hrtime.bigint()` will be used, resulting in a nanosecond precision execution time value, which will be expressed as milliseconds, i.e. 104211ns will be logged as 104.211ms.
+If decorators are used in a Node.js app, `process.hrtime.bigint()` will be used, resulting in a nanosecond precision execution time value, which will be expressed as milliseconds, i.e. 104136211ns will be logged as 104.1362ms.
 
 Otherwise, `new Date().valueOf()` will be used, which has a millisecond precision.
