@@ -1,4 +1,4 @@
-function Sync(params?: ExecutionTimeDecoratorParameters) {
+export function Sync(params?: ExecutionTimeDecoratorParameters) {
 	return function (target: any, propertyKey: string, descriptor: PropertyDescriptor): any {
 		const originalMethod = descriptor.value;
 		const useHrtime = isInNode();
@@ -27,7 +27,7 @@ function Sync(params?: ExecutionTimeDecoratorParameters) {
 	};
 }
 
-function Async(params?: ExecutionTimeDecoratorParameters) {
+export function Async(params?: ExecutionTimeDecoratorParameters) {
 	return function (target: any, propertyKey: string, descriptor: PropertyDescriptor): any {
 		const originalMethod = descriptor.value;
 		const useHrtime = isInNode();
@@ -56,7 +56,7 @@ function Async(params?: ExecutionTimeDecoratorParameters) {
 	};
 }
 
-type ExecutionTimeDecoratorParameters = {
+export type ExecutionTimeDecoratorParameters = {
 	title?: string;
 	shouldLogArguments?: boolean;
 	logger?: any;
@@ -98,5 +98,3 @@ function logExecutionTime(logParams: ExecutionTimeLogParameters): void {
 		arguments: logParams.arguments,
 	});
 }
-
-export { Async, Sync, ExecutionTimeDecoratorParameters };
