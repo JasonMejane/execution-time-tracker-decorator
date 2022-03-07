@@ -86,7 +86,7 @@ Both `@ExecTimeSync()` and `@ExecTimeAsync()` accept an optional object paramete
 The available options are:
 - `title`: `string` (default = `<ClassName>::<DecoratedMethodName>`), the title string to be logged.
 - `shouldLogArguments`: `boolean` (default = `false`), when true, arguments passed to the decorated method will be added to the logs.
-- `logger`: `any` (default = `console`), the custom logger to use.
+- `loggerMethod`: `any` (default = `console.log`), the custom logger method to use (i.e. `this.logger.info` if you use a custom logger).
 
 Examples:
 ```typescript
@@ -119,7 +119,7 @@ class Demo {
 		throw a;
 	}
 
-    @ExecTimeAsync({ logger: this.logger })
+    @ExecTimeAsync({ loggerMethod: this.logger.info })
 	async asyncFunction(): Promise<string> {
 		return new Promise((resolve, reject) => {
 			setTimeout(() => {
@@ -143,7 +143,7 @@ syncFunctionThrow();
 'Demo::syncFunctionThrow - 8ms - Failure', Object{title: 'Demo::syncFunctionThrow', executionTime: 8, unit: 'ms', succeed: false, arguments: undefined}
 ```
 
-When using a custom logger, be sure that `logger.log` can be called, and accept multiple parameters.
+When using a custom logger, be sure that the method you pass accepts multiple parameters: a main string message, and any object.
 
 Using a custom logger or not, the first parameter that will be passed is the main message (`<Title> - <ExecutionTimeMs> - <Success status>`), the second is an object containing these properties:
 ```typescript

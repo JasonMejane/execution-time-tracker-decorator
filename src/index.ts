@@ -10,7 +10,7 @@ export function ExecTimeSync(params?: ExecutionTimeDecoratorParameters) {
 				startNs: useHrtime ? getTimeNs() : BigInt(0),
 				succeed: true,
 				arguments: params?.shouldLogArguments ? args : undefined,
-				logger: params?.logger,
+				loggerMethod: params?.loggerMethod,
 			};
 
 			try {
@@ -39,7 +39,7 @@ export function ExecTimeAsync(params?: ExecutionTimeDecoratorParameters) {
 				startNs: useHrtime ? getTimeNs() : BigInt(0),
 				succeed: true,
 				arguments: params?.shouldLogArguments ? args : undefined,
-				logger: params?.logger,
+				loggerMethod: params?.loggerMethod,
 			};
 
 			try {
@@ -59,11 +59,11 @@ export function ExecTimeAsync(params?: ExecutionTimeDecoratorParameters) {
 export type ExecutionTimeDecoratorParameters = {
 	title?: string;
 	shouldLogArguments?: boolean;
-	logger?: any;
+	loggerMethod?: any;
 };
 
 type ExecutionTimeLogParameters = {
-	logger: any;
+	loggerMethod: any;
 	title: string;
 	start: number;
 	startNs: bigint;
@@ -89,12 +89,17 @@ function isInNode(): boolean {
 
 function logExecutionTime(logParams: ExecutionTimeLogParameters): void {
 	const executionTime = (logParams.start === 0) ? Number(getTimeNs() - logParams.startNs) / 1000000 : getTime() - logParams.start;
-
-	(logParams.logger || console).log(`${logParams.title} - ${executionTime}ms - ${logParams.succeed ? 'Success' : 'Failure'}`, {
+	const logObject = {
 		title: logParams.title,
 		executionTime,
 		unit: 'ms',
 		succeed: logParams.succeed,
 		arguments: logParams.arguments,
-	});
+	};
+
+	if (logParams.loggerMethod) {
+		logParams.loggerMethod(`${logParams.title} - ${executionTime}ms - ${logParams.succeed ? 'Success' : 'Failure'}`, logObject);
+	} else {
+		console.log(`${logParams.title} - ${executionTime}ms - ${logParams.succeed ? 'Success' : 'Failure'}`, logObject);
+	}
 }
