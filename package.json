@@ -1,6 +1,6 @@
 {
 	"name": "execution-time-tracker-decorator",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Easily track and log execution time of your methods in Node and Browser apps",
 	"main": "index.js",
 	"scripts": {
