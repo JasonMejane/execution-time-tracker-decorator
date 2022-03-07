@@ -35,7 +35,7 @@
 
 In terminal, run:
 ```sh
-npm i execution-time-tracker-decorator;
+npm i execution-time-tracker-decorator
 ```
 
 ## Usage
