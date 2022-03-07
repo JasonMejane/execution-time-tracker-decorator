@@ -88,7 +88,7 @@ function isInNode(): boolean {
 }
 
 function logExecutionTime(logParams: ExecutionTimeLogParameters): void {
-	const executionTime = (logParams.start === 0) ? Number(getTimeNs() - logParams.startNs) / 1000 : getTime() - logParams.start;
+	const executionTime = (logParams.start === 0) ? Number(getTimeNs() - logParams.startNs) / 1000000 : getTime() - logParams.start;
 
 	(logParams.logger || console).log(`${logParams.title} - ${executionTime}ms - ${logParams.succeed ? 'Success' : 'Failure'}`, {
 		title: logParams.title,
