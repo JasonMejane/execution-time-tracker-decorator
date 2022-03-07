@@ -44,20 +44,20 @@ npm i execution-time-tracker-decorator
 
 In your project, import the decorators you need :
 ```typescript
-import { Async, Sync } from 'execution-time-tracker-decorator';
+import { ExecTimeAsync, ExecTimeSync } from 'execution-time-tracker-decorator';
 ```
 
 ### Decorate methods
 
 Two decorators are available:
-- `@Sync()` for synchronous methods
-- `@Async()` for asynchronous ones.
+- `@ExecTimeSync()` for synchronous methods
+- `@ExecTimeAsync()` for asynchronous ones.
 
 Examples:
 ```typescript
 class Demo {
 
-    @Sync()
+    @ExecTimeSync()
 	syncFunction(): number {
 		let a = 0;
 		for (let i = 0; i < 100; i++) {
@@ -66,7 +66,7 @@ class Demo {
 		return a;
 	}
 
-    @Async()
+    @ExecTimeAsync()
     async asyncFunction(): Promise<string> {
 		return new Promise((resolve, reject) => {
 			setTimeout(() => {
@@ -81,7 +81,7 @@ class Demo {
 
 ## Options
 
-Both `@Sync()` and `@Async()` accept an optional object parameter which contain options to adapt to your needs. If one or more of these options are not provided, default values will be used.
+Both `@ExecTimeSync()` and `@ExecTimeAsync()` accept an optional object parameter which contain options to adapt to your needs. If one or more of these options are not provided, default values will be used.
 
 The available options are:
 - `title`: `string` (default = `<ClassName>::<DecoratedMethodName>`), the title string to be logged.
@@ -92,7 +92,7 @@ Examples:
 ```typescript
 class Demo {
 
-    @Sync({ title: 'CustomTitle' })
+    @ExecTimeSync({ title: 'CustomTitle' })
 	syncFunctionA(): number {
 		let a = 0;
 		for (let i = 0; i < 10000000; i++) {
@@ -101,7 +101,7 @@ class Demo {
 		return a;
 	}
 
-    @Sync({ shouldLogArguments: true })
+    @ExecTimeSync({ shouldLogArguments: true })
 	syncFunctionB(param1: number, param2: string): number {
 		let a = param;
 		for (let i = 0; i < 100; i++) {
@@ -110,7 +110,7 @@ class Demo {
 		return a;
 	}
 
-    @Sync()
+    @ExecTimeSync()
 	syncFunctionThrow(): number {
 		let a = 0;
 		for (let i = 0; i < 10000000; i++) {
@@ -119,7 +119,7 @@ class Demo {
 		throw a;
 	}
 
-    @Async({ logger: this.logger })
+    @ExecTimeAsync({ logger: this.logger })
 	async asyncFunction(): Promise<string> {
 		return new Promise((resolve, reject) => {
 			setTimeout(() => {

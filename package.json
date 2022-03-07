@@ -1,6 +1,6 @@
 {
 	"name": "execution-time-tracker-decorator",
-	"version": "1.0.8",
+	"version": "2.0.0",
 	"description": "Easily track and log execution time of your methods in Node and Browser apps",
 	"scripts": {
 		"build": "tsc -p tsconfig.build.json",

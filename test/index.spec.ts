@@ -1,54 +1,54 @@
-import { Async, Sync } from '../src';
+import { ExecTimeAsync, ExecTimeSync } from '../src';
 
 export class TestSync {
-	@Sync()
+	@ExecTimeSync()
 	testNoParams(limit?: number): void {
 		return;
 	}
 
-	@Sync({ shouldLogArguments: true })
+	@ExecTimeSync({ shouldLogArguments: true })
 	testWithArguments(limit?: number): void {
 		return;
 	}
 
-	@Sync({ title: 'SyncCustomTitle' })
+	@ExecTimeSync({ title: 'SyncCustomTitle' })
 	testCustomTitle(limit?: number): void {
 		return;
 	}
 
-	@Sync({ logger: console })
+	@ExecTimeSync({ logger: console })
 	testCustomLogger(limit?: number): void {
 		return;
 	}
 
-	@Sync()
+	@ExecTimeSync()
 	testThrow(limit?: number): void {
 		throw 'Error';
 	}
 }
 
 export class TestAsync {
-	@Async()
+	@ExecTimeAsync()
 	async testNoParams(limit?: number): Promise<void> {
 		return;
 	}
 
-	@Async({ shouldLogArguments: true })
+	@ExecTimeAsync({ shouldLogArguments: true })
 	async testWithArguments(limit?: number): Promise<void> {
 		return;
 	}
 
-	@Async({ title: 'AsyncCustomTitle' })
+	@ExecTimeAsync({ title: 'AsyncCustomTitle' })
 	async testCustomTitle(limit?: number): Promise<void> {
 		return;
 	}
 
-	@Async({ logger: console })
+	@ExecTimeAsync({ logger: console })
 	async testCustomLogger(limit?: number): Promise<void> {
 		return;
 	}
 
-	@Async()
+	@ExecTimeAsync()
 	async testThrow(limit?: number): Promise<void> {
 		throw 'Error';
 	}
