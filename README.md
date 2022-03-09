@@ -57,7 +57,7 @@ Examples:
 ```typescript
 class Demo {
 
-    @ExecTimeSync()
+	@ExecTimeSync()
 	syncFunction(): number {
 		let a = 0;
 		for (let i = 0; i < 100; i++) {
@@ -66,8 +66,8 @@ class Demo {
 		return a;
 	}
 
-    @ExecTimeAsync()
-    async asyncFunction(): Promise<string> {
+	@ExecTimeAsync()
+	async asyncFunction(): Promise<string> {
 		return new Promise((resolve, reject) => {
 			setTimeout(() => {
 				resolve('foo');
@@ -83,16 +83,16 @@ class Demo {
 
 Both `@ExecTimeSync()` and `@ExecTimeAsync()` accept an optional object parameter which contain options to adapt to your needs. If one or more of these options are not provided, default values will be used.
 
-The available options are:
+### Available options
 - `title`: `string` (default = `<ClassName>::<DecoratedMethodName>`), the title string to be logged.
 - `shouldLogArguments`: `boolean` (default = `false`), when true, arguments passed to the decorated method will be added to the logs.
 - `loggerMethod`: `any` (default = `console.log`), the custom logger method to use (i.e. `this.logger.info` if you use a custom logger).
 
-Examples:
+### Examples:
 ```typescript
 class Demo {
 
-    @ExecTimeSync({ title: 'CustomTitle' })
+	@ExecTimeSync({ title: 'CustomTitle' })
 	syncFunctionA(): number {
 		let a = 0;
 		for (let i = 0; i < 10000000; i++) {
@@ -101,7 +101,7 @@ class Demo {
 		return a;
 	}
 
-    @ExecTimeSync({ shouldLogArguments: true })
+	@ExecTimeSync({ shouldLogArguments: true })
 	syncFunctionB(param1: number, param2: string): number {
 		let a = param;
 		for (let i = 0; i < 100; i++) {
@@ -110,7 +110,7 @@ class Demo {
 		return a;
 	}
 
-    @ExecTimeSync()
+	@ExecTimeSync()
 	syncFunctionThrow(): number {
 		let a = 0;
 		for (let i = 0; i < 10000000; i++) {
@@ -119,7 +119,7 @@ class Demo {
 		throw a;
 	}
 
-    @ExecTimeAsync({ loggerMethod: this.logger.info })
+	@ExecTimeAsync({ loggerMethod: this.logger.info })
 	async asyncFunction(): Promise<string> {
 		return new Promise((resolve, reject) => {
 			setTimeout(() => {
@@ -131,20 +131,41 @@ class Demo {
 }
 ```
 
-Results
+### Results
 ```console
 syncFunctionA();
-'CustomTitle - 8ms - Success', Object{title: 'CustomTitle', executionTime: 8, unit: 'ms', succeed: true, arguments: undefined}
+CustomTitle - 8ms - Success, {
+title: 'CustomTitle',
+executionTime: 8,
+unit: 'ms',
+succeed: true,
+arguments: undefined
+}
 
 syncFunctionB(5, 'stringParam');
-'Demo::syncFunctionB - 1ms - Success', Object{title: 'Demo::syncFunctionB', executionTime: 1, unit: 'ms', succeed: true, arguments: [5, 'stringParam']}
+Demo::syncFunctionB - 1ms - Success, {
+title: 'Demo::syncFunctionB',
+executionTime: 1,
+unit: 'ms',
+succeed: true,
+arguments: [5, 'stringParam']
+}
 
 syncFunctionThrow();
-'Demo::syncFunctionThrow - 8ms - Failure', Object{title: 'Demo::syncFunctionThrow', executionTime: 8, unit: 'ms', succeed: false, arguments: undefined}
+Demo::syncFunctionThrow - 8ms - Failure, {
+title: 'Demo::syncFunctionThrow',
+executionTime: 8,
+unit: 'ms',
+succeed: false,
+arguments: undefined
+}
 ```
 
+### Custom logger method
 When using a custom logger, be sure that the method you pass accepts multiple parameters: a main string message, and any object.
+You need to pass directly the method you want to be used, i.e. `this.logger.info` or `this.logger.debug`.
 
+### Logs
 Using a custom logger or not, the first parameter that will be passed is the main message (`<Title> - <ExecutionTimeMs> - <Success status>`), the second is an object containing these properties:
 ```typescript
 {
