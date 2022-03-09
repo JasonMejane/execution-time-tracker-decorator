@@ -133,7 +133,7 @@ class Demo {
 
 ### Results
 ```console
-syncFunctionA();
+syncFunctionA()
 CustomTitle - 8ms - Success, {
 title: 'CustomTitle',
 executionTime: 8,
@@ -142,7 +142,7 @@ succeed: true,
 arguments: undefined
 }
 
-syncFunctionB(5, 'stringParam');
+syncFunctionB(5, 'stringParam')
 Demo::syncFunctionB - 1ms - Success, {
 title: 'Demo::syncFunctionB',
 executionTime: 1,
@@ -151,7 +151,7 @@ succeed: true,
 arguments: [5, 'stringParam']
 }
 
-syncFunctionThrow();
+syncFunctionThrow()
 Demo::syncFunctionThrow - 8ms - Failure, {
 title: 'Demo::syncFunctionThrow',
 executionTime: 8,
