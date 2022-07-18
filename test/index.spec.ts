@@ -140,13 +140,19 @@ describe('TestAsync', () => {
 	let test: TestAsync;
 
 	beforeEach(() => {
+		jasmine.clock().install();
 		test = new TestAsync();
+	});
+
+	afterEach(() => {
+		jasmine.clock().uninstall();
 	});
 
 	it('should run and log default', async () => {
 		spyOn(console, 'log').and.callThrough();
 
 		await test.testNoParams();
+		jasmine.clock().tick(2);
 
 		expect(console.log).toHaveBeenCalledWith('TestAsync::testNoParams - 0ms - Success', {
 			title: 'TestAsync::testNoParams',
@@ -163,6 +169,7 @@ describe('TestAsync', () => {
 		spyOn(console, 'log').and.callThrough();
 
 		await test.testWithArguments(arg);
+		jasmine.clock().tick(2);
 
 		expect(console.log).toHaveBeenCalledWith('TestAsync::testWithArguments - 0ms - Success', {
 			title: 'TestAsync::testWithArguments',
@@ -177,6 +184,7 @@ describe('TestAsync', () => {
 		spyOn(console, 'log').and.callThrough();
 
 		await test.testCustomTitle();
+		jasmine.clock().tick(2);
 
 		expect(console.log).toHaveBeenCalledWith('AsyncCustomTitle - 0ms - Success', {
 			title: 'AsyncCustomTitle',
@@ -207,6 +215,7 @@ describe('TestAsync', () => {
 		try {
 			await test.testThrow();
 		} catch (err) {}
+		jasmine.clock().tick(2);
 
 		expect(console.log).toHaveBeenCalledWith('TestAsync::testThrow - 0ms - Failure', {
 			title: 'TestAsync::testThrow',
