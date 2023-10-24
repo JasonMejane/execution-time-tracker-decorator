@@ -15,5 +15,5 @@
 		"target": "es5",
 		"types": ["node", "jasmine"]
 	},
-	"include": ["src/**/*.ts", "test/**/*.spec.ts"],
+	"include": ["src/**/*.ts", "test/**/*.spec.ts"]
 }
